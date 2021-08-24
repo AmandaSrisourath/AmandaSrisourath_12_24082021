@@ -48,10 +48,73 @@ ul {
 }
 
 .footer {
-    margin-bottom: 60px;
+    margin-bottom: 59px;
 }
 
 .main {
     margin-top: 68px;
     margin-left: 224px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.name {
+    color: #FF0101;
+}
+
+p {
+    font-size: 18px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1126px;;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.activity {
+    width: 835px;
+    height: 320px;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.container-performances {
+    width: 835px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.performances {
+    width: 258px;
+    height: 263px;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.container-performances-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.performances-details {
+    width: 258px;
+    height: 124px;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.performances-details-icon {
+    width: 60px;
+    margin: 32px 24px 32px 32px;
 }
