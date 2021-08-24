@@ -1,13 +1,20 @@
 import React from "react";
+import logo from "../Assets/Logos/logo.png";
 
-class Profile extends React.Component {
+class Header extends React.Component {
     render() {
         return (
-            <div>
-
+            <div id="header">
+                <img id="logo" src={logo} alt="logo"/>
+                <ul>
+                    <li>Accueil</li>
+                    <li>Profil</li>
+                    <li>Réglage</li>
+                    <li>Communauté</li>
+                </ul>
             </div>
         )
     }
 }
 
-export default Profile;
+export default Header;
