@@ -1,25 +1,57 @@
-#header {
+.header {
     display: flex;
-    justify-content: space-between;
-    padding: 18px 28px 13px;
+    align-items: center;
+    height: 91px;
     background-color: #020203;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#logo {
-    width: 178px;
+.logo {
     height: 60px;
+    margin-right: 8%;
+    margin-left: 29px;
 }
 
 ul {
-    width: 994px;
     display: flex;
-    align-self: center;
     justify-content: space-around;
+    flex: 1;
     list-style-type: none;
-    padding-left: 0;
     font-size: 24px;
     font-weight: 500;
     color: white;
     margin: 0;
+    padding-left: 0;
+}
+
+.sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #020203;
+    width: 117px;
+    height: calc(100% - 91px);
+    position: fixed;
+}
+
+.nav-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.icon {
+    width: 64px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    margin-bottom: 60px;
+}
+
+.main {
+    margin-top: 68px;
+    margin-left: 224px;
 }

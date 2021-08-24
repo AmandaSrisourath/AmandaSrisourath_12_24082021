@@ -5,7 +5,7 @@ import biking from "../Assets/Icons/biking.png";
 import gym from "../Assets/Icons/gym.png";
 import copyright from "../Assets/copiryght.png";
 
-class SideBart extends React.Component {
+class Sidebar extends React.Component {
     render() {
         return (
             <div className="sidebar">
@@ -24,4 +24,4 @@ class SideBart extends React.Component {
     }
 }
 
-export default SideBart;
+export default Sidebar;

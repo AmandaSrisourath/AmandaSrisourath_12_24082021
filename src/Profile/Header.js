@@ -4,8 +4,8 @@ import logo from "../Assets/Logos/logo.png";
 class Header extends React.Component {
     render() {
         return (
-            <div id="header">
-                <img id="logo" src={logo} alt="logo"/>
+            <div className="header">
+                <img className="logo" src={logo} alt="logo"/>
                 <ul>
                     <li>Accueil</li>
                     <li>Profil</li>
