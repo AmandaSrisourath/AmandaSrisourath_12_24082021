@@ -30,8 +30,10 @@ ul {
     flex-direction: column;
     background-color: #020203;
     width: 117px;
-    height: calc(100% - 91px);
+    height: 100%;
     position: fixed;
+    z-index: -1;
+    top: 0;
 }
 
 .nav-icons {
@@ -53,7 +55,7 @@ ul {
 
 .main {
     margin-top: 68px;
-    margin-left: 224px;
+    margin-left: 15%;
 }
 
 h1 {
@@ -65,7 +67,7 @@ h1 {
     color: #FF0101;
 }
 
-p {
+.congratulations {
     font-size: 18px;
 }
 
@@ -75,14 +77,18 @@ p {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 77px;
+}
+
+.background {
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    margin-bottom: 30px;
 }
 
 .activity {
     width: 835px;
     height: 320px;
-    background-color: #FBFBFB;
-    border-radius: 5px;
-    margin-bottom: 30px;
 }
 
 .container-performances {
@@ -94,9 +100,6 @@ p {
 .performances {
     width: 258px;
     height: 263px;
-    background-color: #FBFBFB;
-    border-radius: 5px;
-    margin-bottom: 30px;
 }
 
 .container-performances-detail {
@@ -106,15 +109,48 @@ p {
 }
 
 .performances-details {
+    display: flex;
     width: 258px;
     height: 124px;
-    background-color: #FBFBFB;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    padding: 0;
 }
 
 .performances-details-icon {
     width: 60px;
+    height: 60px;
     margin: 32px 24px 32px 32px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.lost {
+    margin: 32px 24px 32px 0;
+    align-self: center;
+}
+
+@media only screen and (min-width : 1024px) and (max-width: 1366px) {
+    .container-performances-detail {
+        width: 835px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .performances-details {
+        width: 200px;
+        height: 124px;
+    }
+
+    .performances-details-icon {
+        margin: 32px 12px;
+    }
 }
