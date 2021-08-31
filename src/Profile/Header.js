@@ -6,7 +6,7 @@ class Header extends React.Component {
         return (
             <div className="header">
                 <img className="logo" src={logo} alt="logo"/>
-                <ul>
+                <ul className="navigation">
                     <li>Accueil</li>
                     <li>Profil</li>
                     <li>Réglage</li>
