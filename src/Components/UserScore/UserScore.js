@@ -44,26 +44,26 @@ class UserScore extends React.Component {
         const {foundUserScore} = this.state;
 
         return (
-                <RadialBarChart
-                    width={258}
-                    height={263}
-                    data={[foundUserScore]}
-                    outerRadius={80}
-                    innerRadius={70}
-                    startAngle={90}
-                    endAngle={140}
-                >
-                    <svg viewBox="0 0 100 100" fill="#FFF" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="26"/>
-                    </svg>
+            <RadialBarChart
+                width={258}
+                height={263}
+                data={[foundUserScore]}
+                outerRadius={80}
+                innerRadius={70}
+                startAngle={90}
+                endAngle={140}
+            >
+                <svg viewBox="0 0 100 100" fill="#FFF" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="26"/>
+                </svg>
 
-                    <RadialBar
-                        dataKey='todayScore'
-                        label={this.renderCustomizedLabel}
-                        cornerRadius={50}
-                        fill={'#FF0000'}
-                    />
-                </RadialBarChart>
+                <RadialBar
+                    dataKey='todayScore'
+                    label={this.renderCustomizedLabel}
+                    cornerRadius={50}
+                    fill={'#FF0000'}
+                />
+            </RadialBarChart>
         )
     }
 }
