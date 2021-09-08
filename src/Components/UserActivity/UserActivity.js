@@ -1,7 +1,7 @@
 import React from "react";
-import {USER_ACTIVITY} from "../Assets/data";
+import {USER_ACTIVITY} from "../../Assets/data";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
-import {format, parseISO} from "date-fns";
+import {format, parseISO, isValid} from "date-fns";
 import CustomTooltip from "./CustomTooltip";
 
 const ID = 12;
@@ -37,23 +37,7 @@ class UserActivity extends React.Component {
         }
 
         return (
-            <BarChart width={763} height={183} data={foundUserActivity.sessions}>
-                <Bar
-                    yAxisId="kilogram"
-                    dataKey="kilogram"
-                    fill="#282D30"
-                    barSize={7}
-                    radius={[3, 3, 0, 0]}
-                />
-
-                <Bar
-                    yAxisId="calories"
-                    dataKey="calories"
-                    fill="#E60000"
-                    barSize={7}
-                    radius={[3, 3, 0, 0]}
-                />
-
+            <BarChart width={835} height={320} data={foundUserActivity.sessions} margin={{top: 112, right: 29, left: 43, bottom: 23,}}>
                 <CartesianGrid
                     strokeDasharray="3 3"
                     vertical={false}
@@ -62,10 +46,11 @@ class UserActivity extends React.Component {
                 <XAxis
                     dataKey="day"
                     tickLine={false}
-                    scale="point"
-                    padding={{ left: 9, right: 9 }}
                     tickMargin={16}
-                    tickFormatter={(str) => { const date = parseISO(str); return format(date, "d")}}
+                    tickFormatter={(str) => {
+                        const date = parseISO(str);
+                        return isValid(date) ? format(date, "d") : null;
+                    }}
                 />
 
                 <YAxis
@@ -75,7 +60,7 @@ class UserActivity extends React.Component {
                     tickCount={3}
                     orientation="right"
                     yAxisId="kilogram"
-                    domain={[70, "auto"]}
+                    domain={["auto"]}
                     tickMargin={40}
                 />
 
@@ -95,11 +80,26 @@ class UserActivity extends React.Component {
                 />
 
                 <Legend
-                    verticalAlign="top"
                     align="right"
                     iconType="circle"
                     iconSize={8}
                     formatter={legendFormatter}
+                />
+
+                <Bar
+                    yAxisId="kilogram"
+                    dataKey="kilogram"
+                    fill="#282D30"
+                    barSize={7}
+                    radius={[3, 3, 0, 0]}
+                />
+
+                <Bar
+                    yAxisId="calories"
+                    dataKey="calories"
+                    fill="#E60000"
+                    barSize={7}
+                    radius={[3, 3, 0, 0]}
                 />
             </BarChart>
         )

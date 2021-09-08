@@ -4,7 +4,10 @@ import calories from "../Assets/Icons/calories.png";
 import protein from "../Assets/Icons/protein.png";
 import carbs from "../Assets/Icons/carbs.png";
 import fat from "../Assets/Icons/fat.png";
-import UserActivity from "./UserActivity";
+import UserActivity from "./UserActivity/UserActivity";
+import UserPerformance from "./UserPerformance/UserPerformance";
+import UserScore from "./UserScore/UserScore";
+import UserAverageSessions from "./UserAverageSessions/UserAverageSessions";
 
 const ID = 12;
 
@@ -42,18 +45,22 @@ class Profile extends React.Component {
                     <div>
                         <div className="activity background">
                             <h2 className="activity-title">Activité quotidienne</h2>
-
                             <UserActivity />
                         </div>
 
                         <div className="container-results">
                             <div className="average-sessions background">
+                                <h2 className="average-sessions-title">Durée moyenne des sessions</h2>
+                                <UserAverageSessions />
                             </div>
 
                             <div className="performance background">
+                                <UserPerformance />
                             </div>
 
                             <div className="score background">
+                                <h2 className="activity-title">Score</h2>
+                                <UserScore />
                             </div>
                         </div>
                     </div>
