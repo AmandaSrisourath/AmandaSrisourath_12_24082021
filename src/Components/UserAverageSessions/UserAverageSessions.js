@@ -2,10 +2,10 @@ import React from "react";
 import {USER_AVERAGE_SESSIONS} from "../../Assets/data";
 import {LineChart, XAxis, YAxis, Tooltip, Line} from "recharts";
 import CustomTooltipAverage from "./CustomTooltipAverage";
-import {format, isValid, parseISO} from "date-fns";
 import CustomCursor from "./CustomCurstor";
 
 const ID = 12;
+const weekDays = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
 class UserAverageSessions extends React.Component {
     componentDidMount() {
@@ -22,8 +22,6 @@ class UserAverageSessions extends React.Component {
         this.state = {
             foundUserAverageSessions: {
                 sessions: [],
-                // days: {Lundi: 1, Mardi: 2, Mercredi: 3, Jeudi: 4, Vendredi: 5, Samedi: 6, Dimanche: 7},
-                // days: {1: "Lundi", 2: "Mardi", 3: "Mercredi", 4: "Jeudi", 5: "Vendredi", 6: "Samedi", 7: "Dimanche"}
             },
             tooltipX: null,
         };
@@ -40,12 +38,6 @@ class UserAverageSessions extends React.Component {
     render() {
         const {foundUserAverageSessions, tooltipX} = this.state;
 
-        // const days = {Lundi: 1, Mardi: 2, Mercredi: 3, Jeudi: 4, Vendredi: 5, Samedi: 6, Dimanche: 7}
-        // console.log(days["Mardi"]);
-
-        // const days = foundUserAverageSessions.sessions.day;
-        // console.log(days)
-
         return (
             <LineChart
                 width={258}
@@ -57,23 +49,13 @@ class UserAverageSessions extends React.Component {
                     dataKey="day"
                     axisLine={false}
                     tickLine={false}
-                    // tickMargin={19}
-
-                    // tickFormatter={(str) => {
-                    //     const day = parseISO(str);
-                    //     return isValid(day) ? format(day, "IEEE") : null;
-                    // }}
-
-                    // tickFormatter={(str) => {
-                    //     // const days = {Lundi: 1, Mardi: 2, Mercredi: 3, Jeudi: 4, Vendredi: 5, Samedi: 6, Dimanche: 7};
-                    //     // return days[""];
-                    //     console.log(foundUserAverageSessions.days);
-                    // }}
+                    tickFormatter={(str) => weekDays[str - 1]}
+                    tick={{ fill: 'rgba(255, 255, 255, 0.5)'}}
                 />
 
                 <YAxis
                     dataKey="sessionLength"
-                    domain={[0, "auto"]}
+                    domain={["auto"]}
                     hide
                 />
 
