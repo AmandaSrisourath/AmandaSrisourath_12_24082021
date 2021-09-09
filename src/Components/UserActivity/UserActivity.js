@@ -5,7 +5,7 @@ import CustomTooltip from "./CustomTooltip";
 
 class UserActivity extends React.Component {
     render() {
-        const {foundUserActivity} = this.props;
+        const {sessions} = this.props;
 
         const legendFormatter = (value) => {
             return (
@@ -16,7 +16,7 @@ class UserActivity extends React.Component {
         }
 
         return (
-            <BarChart width={835} height={320} data={foundUserActivity.sessions} margin={{top: 112, right: 29, left: 43, bottom: 23,}}>
+            <BarChart width={835} height={320} data={sessions} margin={{top: 112, right: 29, left: 43, bottom: 23,}}>
                 <CartesianGrid
                     strokeDasharray="3 3"
                     vertical={false}

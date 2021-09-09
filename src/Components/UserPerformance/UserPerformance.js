@@ -3,11 +3,11 @@ import {RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar} from "rec
 
 class UserPerformance extends React.Component {
     render() {
-        const {foundUserPerformance} = this.props;
-        const kindValue = foundUserPerformance.kind;
+        const {performance, kind} = this.props;
+        const kindValue = kind;
 
         return (
-            <RadarChart outerRadius={70} width={258} height={263} data={foundUserPerformance.data}>
+            <RadarChart outerRadius={70} width={258} height={263} data={performance}>
                 <PolarGrid radialLines={false} />
 
                 <PolarAngleAxis

@@ -3,7 +3,7 @@ import {RadialBarChart, RadialBar} from "recharts";
 
 class UserScore extends React.Component {
     renderCustomizedLabel = ({ cx, cy }) => {
-        const {todayScore} = this.props.foundUserScore;
+        const {todayScore} = this.props;
 
         return (
             <>
@@ -21,13 +21,13 @@ class UserScore extends React.Component {
     }
 
     render() {
-        const {foundUserScore} = this.props;
+        const {todayScore} = this.props;
 
         return (
             <RadialBarChart
                 width={258}
                 height={263}
-                data={[foundUserScore]}
+                data={[{todayScore}]}
                 outerRadius={80}
                 innerRadius={70}
                 startAngle={90}

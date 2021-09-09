@@ -26,16 +26,12 @@ class Profile extends React.Component {
         const usersPerformance = USER_PERFORMANCE;
         const foundUserPerformance = usersPerformance.find(userPerformance => userPerformance.userId === ID);
 
-        const usersScore = USER_MAIN_DATA;
-        const foundUserScore = usersScore.find(userScore => userScore.id === ID);
-
         if (usersData) {
             this.setState( {
                 foundUserData: foundUserData,
                 foundUserActivity: foundUserActivity,
                 foundUserAverageSessions: foundUserAverageSessions,
                 foundUserPerformance:foundUserPerformance,
-                foundUserScore:foundUserScore,
             })
         }
     }
@@ -56,13 +52,11 @@ class Profile extends React.Component {
                 kind: {},
                 data: []
             },
-            foundUserScore: {
-            }
         };
     }
 
     render() {
-        const {foundUserData, foundUserActivity, foundUserAverageSessions, foundUserPerformance, foundUserScore} = this.state;
+        const {foundUserData, foundUserActivity, foundUserAverageSessions, foundUserPerformance} = this.state;
 
         return (
             <div className="main">
@@ -73,22 +67,22 @@ class Profile extends React.Component {
                     <div>
                         <div className="activity background">
                             <h2 className="activity-title">Activité quotidienne</h2>
-                            <UserActivity foundUserActivity={foundUserActivity} />
+                            <UserActivity sessions={foundUserActivity.sessions} />
                         </div>
 
                         <div className="container-results">
                             <div className="average-sessions background">
                                 <h2 className="average-sessions-title">Durée moyenne des sessions</h2>
-                                <UserAverageSessions foundUserAverageSessions={foundUserAverageSessions} />
+                                <UserAverageSessions averageSessions={foundUserAverageSessions.sessions} />
                             </div>
 
                             <div className="performance background">
-                                <UserPerformance foundUserPerformance={foundUserPerformance} />
+                                <UserPerformance performance={foundUserPerformance.data} kind={foundUserPerformance.kind} />
                             </div>
 
                             <div className="score background">
                                 <h2 className="activity-title">Score</h2>
-                                <UserScore foundUserScore={foundUserScore} />
+                                <UserScore todayScore={foundUserData.todayScore} />
                             </div>
                         </div>
                     </div>

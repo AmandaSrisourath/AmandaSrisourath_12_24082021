@@ -23,14 +23,14 @@ class UserAverageSessions extends React.Component {
 
     render() {
         const {tooltipX} = this.state;
-        const {foundUserAverageSessions} = this.props;
+        const {averageSessions} = this.props;
 
 
         return (
             <LineChart
                 width={258}
                 height={263}
-                data={foundUserAverageSessions.sessions}
+                data={averageSessions}
                 margin={{ top: 77, right: 8, left: 8, bottom: 16 }}
             >
                 <XAxis
