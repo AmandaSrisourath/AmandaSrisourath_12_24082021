@@ -1,5 +1,5 @@
 import React from "react";
-import {USER_MAIN_DATA} from "../Assets/data";
+import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from "../Assets/data";
 import calories from "../Assets/Icons/calories.png";
 import protein from "../Assets/Icons/protein.png";
 import carbs from "../Assets/Icons/carbs.png";
@@ -17,9 +17,25 @@ class Profile extends React.Component {
         const usersData = USER_MAIN_DATA;
         const foundUserData = usersData.find(userData => userData.id === ID);
 
+        const usersActivity = USER_ACTIVITY;
+        const foundUserActivity = usersActivity.find(userActivity => userActivity.userId === ID);
+
+        const usersAverageSessions = USER_AVERAGE_SESSIONS;
+        const foundUserAverageSessions = usersAverageSessions.find(userAverageSessions => userAverageSessions.userId === ID);
+
+        const usersPerformance = USER_PERFORMANCE;
+        const foundUserPerformance = usersPerformance.find(userPerformance => userPerformance.userId === ID);
+
+        const usersScore = USER_MAIN_DATA;
+        const foundUserScore = usersScore.find(userScore => userScore.id === ID);
+
         if (usersData) {
             this.setState( {
                 foundUserData: foundUserData,
+                foundUserActivity: foundUserActivity,
+                foundUserAverageSessions: foundUserAverageSessions,
+                foundUserPerformance:foundUserPerformance,
+                foundUserScore:foundUserScore,
             })
         }
     }
@@ -30,11 +46,23 @@ class Profile extends React.Component {
             foundUserData: {
                 userInfos: {}, keyData: {},
             },
+            foundUserActivity: {
+                sessions: [],
+            },
+            foundUserAverageSessions: {
+                sessions: [],
+            },
+            foundUserPerformance: {
+                kind: {},
+                data: []
+            },
+            foundUserScore: {
+            }
         };
     }
 
     render() {
-        const {foundUserData} = this.state;
+        const {foundUserData, foundUserActivity, foundUserAverageSessions, foundUserPerformance, foundUserScore} = this.state;
 
         return (
             <div className="main">
@@ -45,22 +73,22 @@ class Profile extends React.Component {
                     <div>
                         <div className="activity background">
                             <h2 className="activity-title">Activité quotidienne</h2>
-                            <UserActivity />
+                            <UserActivity foundUserActivity={foundUserActivity} />
                         </div>
 
                         <div className="container-results">
                             <div className="average-sessions background">
                                 <h2 className="average-sessions-title">Durée moyenne des sessions</h2>
-                                <UserAverageSessions />
+                                <UserAverageSessions foundUserAverageSessions={foundUserAverageSessions} />
                             </div>
 
                             <div className="performance background">
-                                <UserPerformance />
+                                <UserPerformance foundUserPerformance={foundUserPerformance} />
                             </div>
 
                             <div className="score background">
                                 <h2 className="activity-title">Score</h2>
-                                <UserScore />
+                                <UserScore foundUserScore={foundUserScore} />
                             </div>
                         </div>
                     </div>

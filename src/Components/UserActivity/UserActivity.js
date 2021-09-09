@@ -1,32 +1,11 @@
 import React from "react";
-import {USER_ACTIVITY} from "../../Assets/data";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import {format, parseISO, isValid} from "date-fns";
 import CustomTooltip from "./CustomTooltip";
 
-const ID = 12;
-
 class UserActivity extends React.Component {
-    componentDidMount() {
-        const usersActivity = USER_ACTIVITY;
-        const foundUserActivity = usersActivity.find(userActivity => userActivity.userId === ID);
-
-        this.setState( {
-            foundUserActivity:foundUserActivity,
-        })
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            foundUserActivity: {
-                sessions: [],
-            }
-        };
-    }
-
     render() {
-        const {foundUserActivity} = this.state;
+        const {foundUserActivity} = this.props;
 
         const legendFormatter = (value) => {
             return (

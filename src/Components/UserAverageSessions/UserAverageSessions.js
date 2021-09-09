@@ -1,28 +1,14 @@
 import React from "react";
-import {USER_AVERAGE_SESSIONS} from "../../Assets/data";
 import {LineChart, XAxis, YAxis, Tooltip, Line} from "recharts";
 import CustomTooltipAverage from "./CustomTooltipAverage";
 import CustomCursor from "./CustomCurstor";
 
-const ID = 12;
 const weekDays = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
 class UserAverageSessions extends React.Component {
-    componentDidMount() {
-        const usersAverageSessions = USER_AVERAGE_SESSIONS;
-        const foundUserAverageSessions = usersAverageSessions.find(userAverageSessions => userAverageSessions.userId === ID);
-
-        this.setState( {
-            foundUserAverageSessions:foundUserAverageSessions,
-        })
-    }
-
     constructor(props) {
         super(props);
         this.state = {
-            foundUserAverageSessions: {
-                sessions: [],
-            },
             tooltipX: null,
         };
     }
@@ -36,7 +22,9 @@ class UserAverageSessions extends React.Component {
     }
 
     render() {
-        const {foundUserAverageSessions, tooltipX} = this.state;
+        const {tooltipX} = this.state;
+        const {foundUserAverageSessions} = this.props;
+
 
         return (
             <LineChart

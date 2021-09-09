@@ -1,29 +1,9 @@
 import React from "react";
-import {USER_MAIN_DATA} from "../../Assets/data";
 import {RadialBarChart, RadialBar} from "recharts";
 
-const ID = 12;
-
 class UserScore extends React.Component {
-    componentDidMount() {
-        const usersScore = USER_MAIN_DATA;
-        const foundUserScore = usersScore.find(userScore => userScore.id === ID);
-
-        this.setState( {
-            foundUserScore:foundUserScore,
-        })
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            foundUserScore: {
-            }
-        };
-    }
-
     renderCustomizedLabel = ({ cx, cy }) => {
-        const {todayScore} = this.state.foundUserScore;
+        const {todayScore} = this.props.foundUserScore;
 
         return (
             <>
@@ -41,7 +21,7 @@ class UserScore extends React.Component {
     }
 
     render() {
-        const {foundUserScore} = this.state;
+        const {foundUserScore} = this.props;
 
         return (
             <RadialBarChart

@@ -209,11 +209,11 @@ div.recharts-legend-wrapper {
     }
 
     .results-details {
-        width: 200px;
+        width: 195px;
         height: 124px;
     }
 
     .results-details-icon {
-        margin: 32px 12px;
+        margin: 32px 18px;
     }
 }

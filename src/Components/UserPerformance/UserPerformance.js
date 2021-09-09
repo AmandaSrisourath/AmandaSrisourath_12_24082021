@@ -1,31 +1,9 @@
 import React from "react";
-import {USER_PERFORMANCE} from "../../Assets/data";
 import {RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar} from "recharts";
 
-const ID = 12;
-
 class UserPerformance extends React.Component {
-    componentDidMount() {
-        const usersPerformance = USER_PERFORMANCE;
-        const foundUserPerformance = usersPerformance.find(userPerformance => userPerformance.userId === ID);
-
-        this.setState( {
-            foundUserPerformance:foundUserPerformance,
-        })
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            foundUserPerformance: {
-                kind: {},
-                data: []
-            }
-        };
-    }
-
     render() {
-        const {foundUserPerformance} = this.state;
+        const {foundUserPerformance} = this.props;
         const kindValue = foundUserPerformance.kind;
 
         return (
