@@ -2,11 +2,11 @@ import React from "react";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import {format, parseISO, isValid} from "date-fns";
 import CustomTooltip from "./CustomTooltip";
+import PropTypes from "prop-types";
 
 class UserActivity extends React.Component {
     render() {
         const {sessions} = this.props;
-
         const legendFormatter = (value) => {
             return (
                 <p className="legend-color">
@@ -84,5 +84,13 @@ class UserActivity extends React.Component {
         )
     }
 }
+
+UserActivity.propTypes = {
+    sessions: PropTypes.arrayOf(PropTypes.exact({
+        day: PropTypes.string.isRequired,
+        kilogram: PropTypes.number.isRequired,
+        calories: PropTypes.number.isRequired,
+    })).isRequired
+};
 
 export default UserActivity;

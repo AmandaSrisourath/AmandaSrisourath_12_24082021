@@ -1,5 +1,6 @@
 import React from "react";
 import {RadialBarChart, RadialBar} from "recharts";
+import PropTypes from "prop-types";
 
 class UserScore extends React.Component {
     renderCustomizedLabel = ({ cx, cy }) => {
@@ -46,6 +47,10 @@ class UserScore extends React.Component {
             </RadialBarChart>
         )
     }
+}
+
+UserScore.propTypes = {
+    todayScore: PropTypes.number.isRequired
 }
 
 export default UserScore;

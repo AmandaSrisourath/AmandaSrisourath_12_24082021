@@ -1,5 +1,6 @@
 import React from "react";
 import {RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar} from "recharts";
+import PropTypes from "prop-types";
 
 class UserPerformance extends React.Component {
     render() {
@@ -36,5 +37,13 @@ class UserPerformance extends React.Component {
         )
     }
 }
+
+UserPerformance.propTypes = {
+    performance: PropTypes.arrayOf(PropTypes.exact({
+        value: PropTypes.number.isRequired,
+        kind: PropTypes.number.isRequired,
+    })).isRequired,
+    kind: PropTypes.objectOf(PropTypes.string).isRequired,
+};
 
 export default UserPerformance;

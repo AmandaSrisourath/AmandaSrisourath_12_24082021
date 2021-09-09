@@ -26,21 +26,19 @@ class Profile extends React.Component {
         const usersPerformance = USER_PERFORMANCE;
         const foundUserPerformance = usersPerformance.find(userPerformance => userPerformance.userId === ID);
 
-        if (usersData) {
-            this.setState( {
-                foundUserData: foundUserData,
-                foundUserActivity: foundUserActivity,
-                foundUserAverageSessions: foundUserAverageSessions,
-                foundUserPerformance:foundUserPerformance,
-            })
-        }
+        this.setState( {
+            foundUserData: foundUserData,
+            foundUserActivity: foundUserActivity,
+            foundUserAverageSessions: foundUserAverageSessions,
+            foundUserPerformance:foundUserPerformance,
+        })
     }
 
     constructor(props) {
         super(props);
         this.state = {
             foundUserData: {
-                userInfos: {}, keyData: {},
+                userInfos: {}, keyData: {}, todayScore: 0,
             },
             foundUserActivity: {
                 sessions: [],

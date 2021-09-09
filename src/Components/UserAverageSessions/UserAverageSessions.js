@@ -2,6 +2,7 @@ import React from "react";
 import {LineChart, XAxis, YAxis, Tooltip, Line} from "recharts";
 import CustomTooltipAverage from "./CustomTooltipAverage";
 import CustomCursor from "./CustomCurstor";
+import PropTypes from "prop-types";
 
 const weekDays = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
@@ -24,7 +25,6 @@ class UserAverageSessions extends React.Component {
     render() {
         const {tooltipX} = this.state;
         const {averageSessions} = this.props;
-
 
         return (
             <LineChart
@@ -63,5 +63,12 @@ class UserAverageSessions extends React.Component {
         )
     }
 }
+
+UserAverageSessions.propTypes = {
+    averageSessions: PropTypes.arrayOf(PropTypes.exact({
+        day: PropTypes.number.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+    })).isRequired
+};
 
 export default UserAverageSessions;
