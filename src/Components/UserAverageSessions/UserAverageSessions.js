@@ -43,7 +43,7 @@ class UserAverageSessions extends React.Component {
 
                 <YAxis
                     dataKey="sessionLength"
-                    domain={["auto"]}
+                    domain={[0, "auto"]}
                     hide
                 />
 

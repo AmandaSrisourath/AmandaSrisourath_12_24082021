@@ -16,7 +16,7 @@ class UserActivity extends React.Component {
         }
 
         return (
-            <BarChart width={835} height={320} data={sessions} margin={{top: 112, right: 29, left: 43, bottom: 23,}}>
+            <BarChart width={835} height={320} data={sessions} margin={{ top: 112, right: 29, left: 43, bottom: 23 }}>
                 <CartesianGrid
                     strokeDasharray="3 3"
                     vertical={false}
@@ -63,6 +63,7 @@ class UserActivity extends React.Component {
                     iconType="circle"
                     iconSize={8}
                     formatter={legendFormatter}
+                    wrapperStyle={{ top: 20 }}
                 />
 
                 <Bar
@@ -80,6 +81,7 @@ class UserActivity extends React.Component {
                     barSize={7}
                     radius={[3, 3, 0, 0]}
                 />
+
             </BarChart>
         )
     }

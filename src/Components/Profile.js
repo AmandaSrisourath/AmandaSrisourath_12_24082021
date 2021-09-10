@@ -1,5 +1,4 @@
 import React from "react";
-import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from "../Assets/data";
 import calories from "../Assets/Icons/calories.png";
 import protein from "../Assets/Icons/protein.png";
 import carbs from "../Assets/Icons/carbs.png";
@@ -8,23 +7,19 @@ import UserActivity from "./UserActivity/UserActivity";
 import UserPerformance from "./UserPerformance/UserPerformance";
 import UserScore from "./UserScore/UserScore";
 import UserAverageSessions from "./UserAverageSessions/UserAverageSessions";
+import userService from "../Services/userService";
+import {USER_MAIN_DATA} from "../Assets/data";
 
 const ID = 12;
 
 class Profile extends React.Component {
-    componentDidMount() {
+    async componentDidMount() {
         // const {id} = this.props.match.params;
-        const usersData = USER_MAIN_DATA;
-        const foundUserData = usersData.find(userData => userData.id === ID);
 
-        const usersActivity = USER_ACTIVITY;
-        const foundUserActivity = usersActivity.find(userActivity => userActivity.userId === ID);
-
-        const usersAverageSessions = USER_AVERAGE_SESSIONS;
-        const foundUserAverageSessions = usersAverageSessions.find(userAverageSessions => userAverageSessions.userId === ID);
-
-        const usersPerformance = USER_PERFORMANCE;
-        const foundUserPerformance = usersPerformance.find(userPerformance => userPerformance.userId === ID);
+        const foundUserData = await userService.getUserData(ID);
+        const foundUserActivity = await userService.getUserActivity(ID);
+        const foundUserAverageSessions = await userService.getUserAverageSessions(ID);
+        const foundUserPerformance = await userService.getUserPerformance(ID);
 
         this.setState( {
             foundUserData: foundUserData,
