@@ -1,14 +1,15 @@
-import apiService from "./apiService";
+import { client } from "../apiClient";
+
+const prefix = "/user";
 
 /**
  * Make api call to get user data with appropriate userId
  * @param userId
  * @returns {*}
  */
-
 function getUserData (userId) {
-    return apiService.get(userId).then(response => {
-        return response;
+    return client.get(`${prefix}/${userId}`).then(response => {
+        return response.data.data;
     })
 }
 
@@ -17,10 +18,9 @@ function getUserData (userId) {
  * @param userId
  * @returns {*}
  */
-
 function getUserActivity (userId) {
-    return apiService.get(`${userId}/activity`).then(response => {
-        return response;
+    return client.get(`${prefix}/${userId}/activity`).then(response => {
+        return response.data.data;
     })
 }
 
@@ -29,10 +29,9 @@ function getUserActivity (userId) {
  * @param userId
  * @returns {*}
  */
-
 function getUserAverageSessions (userId) {
-    return apiService.get(`${userId}/average-sessions`).then(response => {
-        return response;
+    return client.get(`${prefix}/${userId}/average-sessions`).then(response => {
+        return response.data.data;
     })
 }
 
@@ -41,11 +40,10 @@ function getUserAverageSessions (userId) {
  * @param userId
  * @returns {*}
  */
-
 function getUserPerformance (userId) {
-    return apiService.get(`${userId}/performance`).then(response => {
-        return response;
+    return client.get(`${prefix}/${userId}/performance`).then(response => {
+        return response.data.data;
     })
 }
 
-export default {getUserData, getUserActivity, getUserAverageSessions, getUserPerformance};
+export default { getUserData, getUserActivity, getUserAverageSessions, getUserPerformance };

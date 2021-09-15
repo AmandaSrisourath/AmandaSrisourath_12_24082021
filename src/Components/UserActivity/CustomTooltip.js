@@ -8,7 +8,7 @@ import React from "react";
  */
 
 function CustomTooltip (props) {
-    const {active, payload} = props;
+    const { active, payload } = props;
 
     if (active) {
         return (

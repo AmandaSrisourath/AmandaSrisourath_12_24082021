@@ -1,14 +1,13 @@
 import React from "react";
-import {RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar} from "recharts";
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts";
 import PropTypes from "prop-types";
 
 /**
  * Create radar chart for user performance
  */
-
 class UserPerformance extends React.Component {
     render() {
-        const {performance, kind} = this.props;
+        const { performance, kind } = this.props;
         const kindValue = kind;
 
         return (

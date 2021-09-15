@@ -1,5 +1,5 @@
 import React from "react";
-import {LineChart, XAxis, YAxis, Tooltip, Line} from "recharts";
+import { LineChart, XAxis, YAxis, Tooltip, Line } from "recharts";
 import CustomTooltipAverage from "./CustomTooltipAverage";
 import CustomCursor from "./CustomCurstor";
 import PropTypes from "prop-types";
@@ -9,7 +9,6 @@ const weekDays = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 /**
  * Create line chart for user average sessions
  */
-
 class UserAverageSessions extends React.Component {
     constructor(props) {
         super(props);
@@ -27,8 +26,8 @@ class UserAverageSessions extends React.Component {
     }
 
     render() {
-        const {tooltipX} = this.state;
-        const {averageSessions} = this.props;
+        const { tooltipX } = this.state;
+        const { averageSessions } = this.props;
 
         return (
             <LineChart

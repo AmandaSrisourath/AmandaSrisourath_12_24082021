@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 /**
  * Customize user average sessions tooltip
@@ -8,7 +8,7 @@ import React, {useEffect} from "react";
  */
 
 function CustomTooltipAverage (props) {
-    const {active, payload, coordinate, updateTooltipX} = props;
+    const { active, payload, coordinate, updateTooltipX } = props;
 
     useEffect(() => {
         if (coordinate.x) {

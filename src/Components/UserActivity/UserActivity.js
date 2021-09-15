@@ -1,16 +1,15 @@
 import React from "react";
-import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
-import {format, parseISO, isValid} from "date-fns";
+import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import { format, parseISO, isValid } from "date-fns";
 import CustomTooltip from "./CustomTooltip";
 import PropTypes from "prop-types";
 
 /**
  * Create bar chart for user activity
  */
-
 class UserActivity extends React.Component {
     render() {
-        const {sessions} = this.props;
+        const { sessions } = this.props;
         const legendFormatter = (value) => {
             return (
                 <p className="legend-color">

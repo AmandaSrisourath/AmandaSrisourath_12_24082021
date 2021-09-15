@@ -14,7 +14,6 @@ const ID = 12;
 /**
  * Create user profile page
  */
-
 class Profile extends React.Component {
     async componentDidMount() {
         // const {id} = this.props.match.params;
@@ -52,7 +51,7 @@ class Profile extends React.Component {
     }
 
     render() {
-        const {foundUserData, foundUserActivity, foundUserAverageSessions, foundUserPerformance} = this.state;
+        const { foundUserData, foundUserActivity, foundUserAverageSessions, foundUserPerformance } = this.state;
 
         return (
             <div className="main">
