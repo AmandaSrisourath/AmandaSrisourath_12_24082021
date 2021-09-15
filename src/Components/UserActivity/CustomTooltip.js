@@ -1,5 +1,12 @@
 import React from "react";
 
+/**
+ * Customize user activity tooltip
+ * @param props
+ * @returns {JSX.Element|null}
+ * @constructor
+ */
+
 function CustomTooltip (props) {
     const {active, payload} = props;
 

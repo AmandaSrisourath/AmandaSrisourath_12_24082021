@@ -2,6 +2,10 @@ import React from "react";
 import {RadialBarChart, RadialBar} from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Create radial chart for user score
+ */
+
 class UserScore extends React.Component {
     renderCustomizedLabel = ({ cx, cy }) => {
         const {todayScore} = this.props;

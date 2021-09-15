@@ -6,6 +6,10 @@ import PropTypes from "prop-types";
 
 const weekDays = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
+/**
+ * Create line chart for user average sessions
+ */
+
 class UserAverageSessions extends React.Component {
     constructor(props) {
         super(props);

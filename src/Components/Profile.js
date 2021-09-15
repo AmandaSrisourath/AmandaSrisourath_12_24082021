@@ -8,9 +8,12 @@ import UserPerformance from "./UserPerformance/UserPerformance";
 import UserScore from "./UserScore/UserScore";
 import UserAverageSessions from "./UserAverageSessions/UserAverageSessions";
 import userService from "../Services/userService";
-import {USER_MAIN_DATA} from "../Assets/data";
 
 const ID = 12;
+
+/**
+ * Create user profile page
+ */
 
 class Profile extends React.Component {
     async componentDidMount() {

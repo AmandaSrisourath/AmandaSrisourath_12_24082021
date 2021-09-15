@@ -1,6 +1,10 @@
 import React from "react";
 import logo from "../Assets/Logos/logo.png";
 
+/**
+ * Create header
+ */
+
 class Header extends React.Component {
     render() {
         return (

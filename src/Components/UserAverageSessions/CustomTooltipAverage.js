@@ -1,5 +1,12 @@
 import React, {useEffect} from "react";
 
+/**
+ * Customize user average sessions tooltip
+ * @param props
+ * @returns {JSX.Element|null}
+ * @constructor
+ */
+
 function CustomTooltipAverage (props) {
     const {active, payload, coordinate, updateTooltipX} = props;
 

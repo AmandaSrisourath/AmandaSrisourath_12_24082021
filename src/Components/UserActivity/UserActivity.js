@@ -4,6 +4,10 @@ import {format, parseISO, isValid} from "date-fns";
 import CustomTooltip from "./CustomTooltip";
 import PropTypes from "prop-types";
 
+/**
+ * Create bar chart for user activity
+ */
+
 class UserActivity extends React.Component {
     render() {
         const {sessions} = this.props;
@@ -81,7 +85,6 @@ class UserActivity extends React.Component {
                     barSize={7}
                     radius={[3, 3, 0, 0]}
                 />
-
             </BarChart>
         )
     }

@@ -5,6 +5,10 @@ import biking from "../Assets/Icons/biking.png";
 import gym from "../Assets/Icons/gym.png";
 import copyright from "../Assets/copiryght.png";
 
+/**
+ * Create sidebar
+ */
+
 class Sidebar extends React.Component {
     render() {
         return (
