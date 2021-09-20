@@ -6,7 +6,6 @@ import React, { useEffect } from "react";
  * @returns {JSX.Element|null}
  * @constructor
  */
-
 function CustomTooltipAverage (props) {
     const { active, payload, coordinate, updateTooltipX } = props;
 
