@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Profile.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Profile.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import calories from "../Assets/Icons/calories.png";
+import protein from "../Assets/Icons/protein.png";
+import carbs from "../Assets/Icons/carbs.png";
+import fat from "../Assets/Icons/fat.png";
+import UserActivity from "./UserActivity/UserActivity";
+import UserPerformance from "./UserPerformance/UserPerformance";
+import UserScore from "./UserScore/UserScore";
+import UserAverageSessions from "./UserAverageSessions/UserAverageSessions";
+import userService from "../Services/userService";
+
+const ID = 12;
+
+/**
+ * Create user profile page
+ */
+class Profile extends React.Component {
+    async componentDidMount() {
+        // const {id} = this.props.match.params;
+
+        const foundUserData = await userService.getUserData(ID);
+        const foundUserActivity = await userService.getUserActivity(ID);
+        const foundUserAverageSessions = await userService.getUserAverageSessions(ID);
+        const foundUserPerformance = await userService.getUserPerformance(ID);
+
+        this.setState( {
+            foundUserData: foundUserData,
+            foundUserActivity: foundUserActivity,
+            foundUserAverageSessions: foundUserAverageSessions,
+            foundUserPerformance:foundUserPerformance,
+        })
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            foundUserData: {
+                userInfos: {}, keyData: {}, todayScore: 0,
+            },
+            foundUserActivity: {
+                sessions: [],
+            },
+            foundUserAverageSessions: {
+                sessions: [],
+            },
+            foundUserPerformance: {
+                kind: {},
+                data: []
+            },
+        };
+    }
+
+    render() {
+        const { foundUserData, foundUserActivity, foundUserAverageSessions, foundUserPerformance } = this.state;
+
+        return (
+            &lt;div className="main">
+                &lt;h1>Bonjour &lt;span className="name">{foundUserData.userInfos.firstName}&lt;/span>&lt;/h1>
+                &lt;p className="congratulations">Félicitation ! Vous avez explosé vos objectifs hier 👏&lt;/p>
+
+                &lt;div className="container">
+                    &lt;div>
+                        &lt;div className="activity background">
+                            &lt;h2 className="activity-title">Activité quotidienne&lt;/h2>
+                            &lt;UserActivity sessions={foundUserActivity.sessions} />
+                        &lt;/div>
+
+                        &lt;div className="container-results">
+                            &lt;div className="average-sessions background">
+                                &lt;h2 className="average-sessions-title">Durée moyenne des sessions&lt;/h2>
+                                &lt;UserAverageSessions averageSessions={foundUserAverageSessions.sessions} />
+                            &lt;/div>
+
+                            &lt;div className="performance background">
+                                &lt;UserPerformance performance={foundUserPerformance.data} kind={foundUserPerformance.kind} />
+                            &lt;/div>
+
+                            &lt;div className="score background">
+                                &lt;h2 className="activity-title">Score&lt;/h2>
+                                &lt;UserScore todayScore={foundUserData.todayScore} />
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+
+                    &lt;div className="container-results-detail">
+                        &lt;div className="results-details background">
+                            &lt;img className="results-details-icon" src={calories} alt="calories-icon" />
+                            &lt;div className="lost">
+                                &lt;h3>{foundUserData.keyData.calorieCount}Cal&lt;/h3>
+                                &lt;p>Calories&lt;/p>
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;div className="results-details background">
+                            &lt;img className="results-details-icon" src={protein} alt="protein-icon"/>
+                            &lt;div className="lost">
+                                &lt;h3>{foundUserData.keyData.proteinCount}g&lt;/h3>
+                                &lt;p>Protéines&lt;/p>
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;div className="results-details background">
+                            &lt;img className="results-details-icon" src={carbs} alt="carbs-icon"/>
+                            &lt;div className="lost">
+                                &lt;h3>{foundUserData.keyData.carbohydrateCount}g&lt;/h3>
+                                &lt;p>Glucides&lt;/p>
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;div className="results-details background">
+                            &lt;img className="results-details-icon" src={fat} alt="fat-icon"/>
+                            &lt;div className="lost">
+                                &lt;h3>{foundUserData.keyData.lipidCount}g&lt;/h3>
+                                &lt;p>Lipides&lt;/p>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+        );
+    }
+}
+
+export default Profile;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Header.html">Header</a></li><li><a href="Profile.html">Profile</a></li><li><a href="Sidebar.html">Sidebar</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Sep 21 2021 10:58:37 GMT+1000 (Australian Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
