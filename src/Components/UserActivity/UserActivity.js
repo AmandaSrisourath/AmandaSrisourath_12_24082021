@@ -42,7 +42,7 @@ class UserActivity extends React.Component {
                     tickCount={3}
                     orientation="right"
                     yAxisId="kilogram"
-                    domain={["auto"]}
+                    domain={[65, "auto"]}
                     tickMargin={40}
                 />
 
