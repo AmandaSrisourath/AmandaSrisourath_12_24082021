@@ -1,6 +1,6 @@
-import { client } from "../apiClient";
+import { apiClient, mockClient } from "../Clients";
 
-const prefix = "/user";
+const client = apiClient;
 
 /**
  * Make api call to get user data with appropriate userId
@@ -8,9 +8,7 @@ const prefix = "/user";
  * @returns {*}
  */
 function getUserData (userId) {
-    return client.get(`${prefix}/${userId}`).then(response => {
-        return response.data.data;
-    })
+    return client.getUserData(userId);
 }
 
 /**
@@ -19,9 +17,7 @@ function getUserData (userId) {
  * @returns {*}
  */
 function getUserActivity (userId) {
-    return client.get(`${prefix}/${userId}/activity`).then(response => {
-        return response.data.data;
-    })
+    return client.getUserActivity(userId);
 }
 
 /**
@@ -30,9 +26,7 @@ function getUserActivity (userId) {
  * @returns {*}
  */
 function getUserAverageSessions (userId) {
-    return client.get(`${prefix}/${userId}/average-sessions`).then(response => {
-        return response.data.data;
-    })
+    return client.getUserAverageSessions(userId);
 }
 
 /**
@@ -41,9 +35,7 @@ function getUserAverageSessions (userId) {
  * @returns {*}
  */
 function getUserPerformance (userId) {
-    return client.get(`${prefix}/${userId}/performance`).then(response => {
-        return response.data.data;
-    })
+    return client.getUserPerformance(userId);
 }
 
 export default { getUserData, getUserActivity, getUserAverageSessions, getUserPerformance };
