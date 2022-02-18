@@ -1,3 +1,13 @@
+<img width="300" height="100" src="https://github.com/AmandaSrisourath/SportSee/blob/main/src/Assets/Logos/logo.png">
+
+# Develop an analytics dashboard with React
+
+## What did I do
+- Ensuring the quality of data in an application
+- Interacting with a web service
+- Develop advanced graphical elements using JavaScript libraries
+- Produce technical documentation for an application
+
 ## Prerequisites
 
 - [NodeJS](https://nodejs.org/en/)
